@@ -1,0 +1,29 @@
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.9.0"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+	    maven {
+            url "https://artifactory.irt.de/artifactory/hradio"
+            credentials {
+                username = "${artifactory_username}"
+                password = "${artifactory_password}"
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
