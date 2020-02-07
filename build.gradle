@@ -16,10 +16,6 @@ allprojects {
         jcenter()
 	    maven {
             url "https://artifactory.irt.de/artifactory/hradio"
-            credentials {
-                username = "${artifactory_username}"
-                password = "${artifactory_password}"
-            }
         }
     }
 }
